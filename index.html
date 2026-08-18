@@ -3,56 +3,2278 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#081a31" />
-<title>الشامخ لإدارة الجداول المدرسية</title>
-<meta name="description" content="الشامخ لإدارة الجداول المدرسية — نظام عربي متكامل لإدارة بيانات المدرسة والمعلمين والمواد والصفوف والأنصبة، وتوليد جدول الحصص والاختبارات وإشغال الحصص والتقارير والطباعة." />
+<meta name="theme-color" content="#07192f" />
+
+<title>الشامخ لإدارة الجداول المدرسية V3</title>
+
+<meta name="description"
+      content="الشامخ لإدارة الجداول المدرسية V3 — نظام عربي متكامل لإدارة بيانات المدرسة والمعلمين والمواد والصفوف والأنصبة، وتوليد جداول مدرسية بلا تعارض، مع التعديل بالسحب والتبديل، فحص الجاهزية، Excel، التقارير والطباعة والنسخ الاحتياطي." />
+
 <style>
-:root{--navy:#07192f;--navy2:#0e2f58;--blue:#1e5fa7;--gold:#d9aa39;--gold2:#ffd977;--ink:#172a46;--muted:#718095;--bg:#f4f7fb;--card:#fff;--line:#e4eaf2;--green:#25D366;--shadow:0 22px 65px rgba(8,26,49,.14);--radius:24px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;overflow-x:hidden}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}.container{width:min(1180px,92%);margin:auto}
-/* top */
-.nav{position:sticky;top:0;z-index:50;background:rgba(7,25,47,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08)}.navin{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;color:white}.brand img{width:50px;height:50px;border-radius:14px;object-fit:cover;border:1px solid rgba(255,217,119,.45)}.brand b{font-size:22px;color:var(--gold2)}.brand small{display:block;color:#c5d2e2;font-size:11px;margin-top:-3px}.links{display:flex;gap:22px;color:#dce7f5;font-size:13px;font-weight:700}.links a:hover{color:var(--gold2)}.navbtn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#081a31;padding:10px 17px;border-radius:12px;font-weight:900;font-size:13px}
-/* hero */
-.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 15% 15%,#174a80 0,transparent 33%),linear-gradient(135deg,#06152a,#0c2b51 60%,#123f71);color:white;padding:86px 0 72px}.hero:after{content:"";position:absolute;width:600px;height:600px;border:1px solid rgba(255,217,119,.13);border-radius:50%;left:-260px;top:-250px;box-shadow:0 0 0 70px rgba(255,217,119,.025),0 0 0 140px rgba(255,217,119,.018)}.heroGrid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,217,119,.11);border:1px solid rgba(255,217,119,.28);padding:7px 13px;border-radius:999px;color:var(--gold2);font-weight:800;font-size:12px}.hero h1{font-size:54px;line-height:1.25;margin:17px 0 14px;letter-spacing:-1px}.hero h1 span{background:linear-gradient(90deg,#ffe799,#d8a42c);-webkit-background-clip:text;color:transparent}.lead{font-size:18px;color:#d7e3f1;max-width:670px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:14px;padding:14px 23px;font-weight:900;transition:.25s}.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#081a31;box-shadow:0 12px 30px rgba(217,170,57,.24)}.btn.green{background:var(--green);color:white}.btn.ghost{border:1px solid rgba(255,255,255,.24);color:white;background:rgba(255,255,255,.04)}.btn:hover{transform:translateY(-2px)}.trust{display:flex;flex-wrap:wrap;gap:10px}.pill{font-size:12px;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08);color:#e5edf7}
-.window{position:relative;background:#e8eef6;border-radius:24px;padding:9px;box-shadow:0 35px 80px rgba(0,0,0,.35);transform:perspective(1200px) rotateY(-4deg) rotateX(2deg);transition:.4s}.window:hover{transform:none}.bar{height:33px;background:#dde5ef;border-radius:17px 17px 8px 8px;display:flex;gap:7px;align-items:center;padding:0 14px}.dot{width:9px;height:9px;border-radius:50%;background:#c9d2df}.window img{border-radius:10px}.floatCard{position:absolute;background:white;color:var(--ink);border-radius:16px;padding:12px 15px;box-shadow:0 18px 45px rgba(0,0,0,.2);font-size:12px;font-weight:800}.fc1{right:-20px;bottom:28px}.fc2{left:-16px;top:90px}.floatCard strong{display:block;color:#1d6bb5;font-size:18px}
-/* sections */
-section{padding:78px 0}.head{text-align:center;max-width:830px;margin:0 auto 42px}.head .tag{font-size:12px;font-weight:900;color:#b18424;letter-spacing:.5px}.head h2{font-size:38px;line-height:1.35;margin:7px 0 12px;color:var(--navy)}.head p{color:var(--muted);font-size:16px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 12px 35px rgba(8,26,49,.06);transition:.25s}.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}.ico{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#0c2d54,#1e5fa7);color:var(--gold2);display:grid;place-items:center;font-size:23px;margin-bottom:13px}.card h3{font-size:18px;margin:0 0 7px}.card p{font-size:13px;color:var(--muted);margin:0}
-/* experience */
-.dark{background:linear-gradient(135deg,#07192f,#0d315b);color:white}.dark .head h2{color:white}.dark .head p{color:#cad7e7}.experience{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}.shot{background:#e8eef6;padding:9px;border-radius:24px;box-shadow:0 30px 70px rgba(0,0,0,.28)}.shot img{border-radius:14px}.list{display:grid;gap:13px}.item{display:flex;gap:13px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:15px}.item b{display:block;color:var(--gold2);margin-bottom:3px}.item span{font-size:13px;color:#ccdaea}.num{min-width:38px;height:38px;border-radius:12px;background:rgba(255,217,119,.12);display:grid;place-items:center;color:var(--gold2);font-weight:900}
-/* visual cards */
-.visualGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.visual{position:relative;min-height:310px;overflow:hidden;border-radius:24px;padding:24px;color:white;box-shadow:var(--shadow);background:linear-gradient(160deg,#09203c,#164a7e)}.visual:before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:rgba(255,215,113,.12);left:-50px;top:-50px}.visual h3{position:relative;font-size:23px;margin:0 0 8px}.visual p{position:relative;color:#d8e5f2;font-size:13px}.miniui{position:absolute;right:24px;left:24px;bottom:22px;background:#f8fbff;color:#1b3554;border-radius:15px;padding:12px;box-shadow:0 20px 35px rgba(0,0,0,.2)}.rows{display:grid;gap:7px}.r{height:28px;border-radius:7px;background:#edf2f8;display:grid;grid-template-columns:70px 1fr 1fr 1fr;gap:5px;padding:4px}.r span{border-radius:5px;background:#dce9f7}.r span:first-child{background:#0f3159}.exam .miniui{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.exam .miniui span{height:42px;background:#eaf1f9;border-radius:7px}.exam .miniui span:nth-child(3n){background:#d9aa39}.sub .miniui{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.sub .miniui span{background:#edf4fb;border-radius:8px;padding:8px;font-size:11px}.sub .miniui span:before{content:"●";color:#2f8d57;margin-left:5px}
-/* modules */
-.modules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.module{display:flex;align-items:center;gap:12px;background:white;border:1px solid var(--line);border-radius:16px;padding:15px}.module .mi{width:40px;height:40px;border-radius:11px;background:#eef4fb;display:grid;place-items:center}.module b{font-size:14px}.module small{display:block;color:var(--muted);font-size:11px}
-/* poster */
-.posterWrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:38px;align-items:center}.poster{max-width:390px;margin:auto;border-radius:28px;box-shadow:0 28px 70px rgba(8,26,49,.22)}.selling h2{font-size:38px;line-height:1.35;color:var(--navy);margin:0 0 15px}.selling p{color:var(--muted)}.checks{display:grid;gap:10px;margin:22px 0}.check{display:flex;gap:10px;align-items:center;font-weight:700}.check i{font-style:normal;width:28px;height:28px;border-radius:9px;background:#e9f7ee;color:#26834b;display:grid;place-items:center}
-/* license update */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}.info{border-radius:24px;padding:28px;background:white;border:1px solid var(--line);box-shadow:0 12px 35px rgba(8,26,49,.06)}.info h3{font-size:23px;margin:0 0 10px}.info p{color:var(--muted);font-size:14px}.info.goldbg{background:linear-gradient(135deg,#fffaf0,#fff2c8);border-color:#efdfb0}.info.bluebg{background:linear-gradient(135deg,#f3f8ff,#e5f0ff);border-color:#cfe0f5}
-/* faq */
-.faq{max-width:900px;margin:auto;display:grid;gap:12px}details{background:white;border:1px solid var(--line);border-radius:16px;padding:15px 18px}summary{cursor:pointer;font-weight:900;color:var(--navy)}details p{color:var(--muted);font-size:13px;margin:8px 0 0}
-/* final cta */
-.cta{padding:0 0 80px}.ctaBox{overflow:hidden;position:relative;text-align:center;background:linear-gradient(135deg,#07192f,#113e6e);border-radius:30px;padding:55px 25px;color:white;box-shadow:0 30px 70px rgba(8,26,49,.25)}.ctaBox:before,.ctaBox:after{content:"";position:absolute;border:1px solid rgba(255,217,119,.14);border-radius:50%;width:360px;height:360px;top:-220px}.ctaBox:before{right:-100px}.ctaBox:after{left:-100px}.ctaBox h2{font-size:38px;margin:0 0 10px;color:var(--gold2)}.ctaBox p{color:#d5e1ef;max-width:680px;margin:0 auto 22px}.version{font-size:12px;color:#aebfd1;margin-top:10px}
-/* footer + floating */
-footer{background:#061322;color:#b8c8d9;padding:32px 0}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}.foot b{color:var(--gold2)}.wa{position:fixed;z-index:45;left:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:var(--green);color:white;display:grid;place-items:center;font-size:25px;box-shadow:0 14px 30px rgba(0,0,0,.22);border:3px solid white}
-.reveal{opacity:0;transform:translateY(24px);transition:.7s}.reveal.show{opacity:1;transform:none}
-@media(max-width:950px){.heroGrid,.experience,.posterWrap{grid-template-columns:1fr}.hero h1{font-size:42px}.window{transform:none}.grid4{grid-template-columns:repeat(2,1fr)}.visualGrid,.modules{grid-template-columns:repeat(2,1fr)}.duo{grid-template-columns:1fr}.links{display:none}.poster{max-width:320px}}
-@media(max-width:600px){section{padding:58px 0}.hero{padding:58px 0}.hero h1{font-size:33px}.lead{font-size:15px}.head h2,.selling h2,.ctaBox h2{font-size:29px}.grid4,.visualGrid,.modules{grid-template-columns:1fr}.navbtn{display:none}.brand b{font-size:18px}.floatCard{display:none}.actions .btn{width:100%}.poster{max-width:260px}}
+:root{
+    --navy:#06162b;
+    --navy2:#0c2b51;
+    --navy3:#123f71;
+    --blue:#1f67b3;
+    --blue2:#3c8bd8;
+    --gold:#d9aa39;
+    --gold2:#ffe089;
+    --ink:#172a46;
+    --muted:#708096;
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --line:#e3eaf2;
+    --green:#25D366;
+    --green2:#2d9f61;
+    --red:#d9534f;
+    --orange:#d98b24;
+    --shadow:0 24px 70px rgba(7,25,47,.14);
+    --shadow2:0 14px 36px rgba(7,25,47,.08);
+    --radius:24px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:"Segoe UI",Tahoma,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.85;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* =========================================================
+   Navigation
+========================================================= */
+
+.nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(6,22,43,.93);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.navin{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:white;
+}
+
+.brand img{
+    width:50px;
+    height:50px;
+    border-radius:15px;
+    object-fit:cover;
+    border:1px solid rgba(255,224,137,.48);
+    box-shadow:0 7px 22px rgba(0,0,0,.18);
+}
+
+.brand b{
+    font-size:22px;
+    color:var(--gold2);
+}
+
+.brand small{
+    display:block;
+    color:#c5d2e2;
+    font-size:11px;
+    margin-top:-3px;
+}
+
+.links{
+    display:flex;
+    gap:21px;
+    color:#dce7f5;
+    font-size:13px;
+    font-weight:700;
+}
+
+.links a{
+    transition:.2s;
+}
+
+.links a:hover{
+    color:var(--gold2);
+}
+
+.navbtn{
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    color:#081a31;
+    padding:10px 17px;
+    border-radius:12px;
+    font-weight:900;
+    font-size:13px;
+    box-shadow:0 10px 25px rgba(217,170,57,.18);
+}
+
+/* =========================================================
+   Hero
+========================================================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 12% 14%,rgba(39,111,184,.48),transparent 31%),
+        radial-gradient(circle at 88% 74%,rgba(217,170,57,.13),transparent 26%),
+        linear-gradient(135deg,#06152a,#0b294e 58%,#123f71);
+    color:white;
+    padding:88px 0 78px;
+}
+
+.hero:before,
+.hero:after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(255,224,137,.12);
+    border-radius:50%;
+}
+
+.hero:before{
+    width:620px;
+    height:620px;
+    left:-300px;
+    top:-270px;
+    box-shadow:
+        0 0 0 70px rgba(255,217,119,.025),
+        0 0 0 140px rgba(255,217,119,.016);
+}
+
+.hero:after{
+    width:430px;
+    height:430px;
+    right:-210px;
+    bottom:-240px;
+    box-shadow:
+        0 0 0 60px rgba(255,217,119,.02);
+}
+
+.heroGrid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.04fr .96fr;
+    gap:48px;
+    align-items:center;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,224,137,.11);
+    border:1px solid rgba(255,224,137,.29);
+    padding:8px 14px;
+    border-radius:999px;
+    color:var(--gold2);
+    font-weight:900;
+    font-size:12px;
+}
+
+.hero h1{
+    font-size:55px;
+    line-height:1.22;
+    margin:18px 0 15px;
+    letter-spacing:-1px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#fff0ac,#d7a125);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.lead{
+    font-size:18px;
+    color:#d7e3f1;
+    max-width:690px;
+}
+
+.heroNew{
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.newChip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:#eaf3fd;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.09);
+    padding:7px 10px;
+    border-radius:10px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.newChip strong{
+    color:#9ff0bf;
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:29px 0 22px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    border-radius:14px;
+    padding:14px 23px;
+    font-weight:900;
+    transition:.25s;
+}
+
+.btn.gold{
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    color:#081a31;
+    box-shadow:0 12px 30px rgba(217,170,57,.24);
+}
+
+.btn.green{
+    background:var(--green);
+    color:white;
+}
+
+.btn.ghost{
+    border:1px solid rgba(255,255,255,.23);
+    color:white;
+    background:rgba(255,255,255,.04);
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.trust{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+}
+
+.pill{
+    font-size:11px;
+    padding:7px 11px;
+    border-radius:999px;
+    background:rgba(255,255,255,.065);
+    border:1px solid rgba(255,255,255,.08);
+    color:#e5edf7;
+}
+
+.windowWrap{
+    position:relative;
+}
+
+.window{
+    position:relative;
+    background:#e7edf5;
+    border-radius:24px;
+    padding:9px;
+    box-shadow:0 36px 84px rgba(0,0,0,.35);
+    transform:perspective(1200px) rotateY(-4deg) rotateX(2deg);
+    transition:.4s;
+}
+
+.window:hover{
+    transform:none;
+}
+
+.bar{
+    height:33px;
+    background:#dce5ef;
+    border-radius:17px 17px 8px 8px;
+    display:flex;
+    gap:7px;
+    align-items:center;
+    padding:0 14px;
+}
+
+.dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#c8d2df;
+}
+
+.window img{
+    border-radius:10px;
+}
+
+.floatCard{
+    position:absolute;
+    z-index:4;
+    background:white;
+    color:var(--ink);
+    border-radius:16px;
+    padding:12px 15px;
+    box-shadow:0 18px 45px rgba(0,0,0,.22);
+    font-size:12px;
+    font-weight:800;
+}
+
+.floatCard strong{
+    display:block;
+    font-size:17px;
+}
+
+.fc1{
+    right:-20px;
+    bottom:28px;
+}
+
+.fc1 strong{
+    color:var(--green2);
+}
+
+.fc2{
+    left:-18px;
+    top:88px;
+}
+
+.fc2 strong{
+    color:var(--blue);
+}
+
+/* =========================================================
+   Generic sections
+========================================================= */
+
+section{
+    padding:78px 0;
+}
+
+.head{
+    text-align:center;
+    max-width:850px;
+    margin:0 auto 42px;
+}
+
+.head .tag,
+.tag{
+    font-size:12px;
+    font-weight:900;
+    color:#aa7d1e;
+    letter-spacing:.4px;
+}
+
+.head h2{
+    font-size:38px;
+    line-height:1.35;
+    margin:7px 0 12px;
+    color:var(--navy);
+}
+
+.head p{
+    color:var(--muted);
+    font-size:16px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:.7s;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* =========================================================
+   V3 highlight
+========================================================= */
+
+.v3Section{
+    position:relative;
+    margin-top:-25px;
+    z-index:5;
+    padding-top:0;
+}
+
+.v3Shell{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:32px;
+    box-shadow:var(--shadow);
+}
+
+.v3Top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:24px;
+}
+
+.v3Title h2{
+    font-size:31px;
+    margin:0 0 6px;
+    color:var(--navy);
+}
+
+.v3Title p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+}
+
+.versionBadge{
+    min-width:120px;
+    text-align:center;
+    padding:13px 18px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#07192f,#174a80);
+    color:white;
+    font-weight:900;
+    box-shadow:0 12px 26px rgba(7,25,47,.18);
+}
+
+.versionBadge small{
+    display:block;
+    color:var(--gold2);
+    font-size:10px;
+    margin-top:2px;
+}
+
+.updateGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.updateCard{
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:18px;
+    background:linear-gradient(180deg,#fff,#f9fbfe);
+    min-height:166px;
+    transition:.25s;
+}
+
+.updateCard:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow2);
+}
+
+.updateIcon{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    font-size:21px;
+    margin-bottom:11px;
+    background:#edf4fc;
+}
+
+.updateCard h3{
+    margin:0 0 6px;
+    font-size:16px;
+}
+
+.updateCard p{
+    margin:0;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.65;
+}
+
+.updateCard.critical{
+    border-color:#ccebd8;
+    background:linear-gradient(180deg,#fff,#f1fbf5);
+}
+
+.updateCard.critical .updateIcon{
+    background:#e6f7ed;
+}
+
+.updateCard.drag{
+    border-color:#cfe1f5;
+    background:linear-gradient(180deg,#fff,#f2f7fd);
+}
+
+.updateCard.drag .updateIcon{
+    background:#e7f1fc;
+}
+
+.dragPreview{
+    display:flex;
+    gap:5px;
+    margin-top:12px;
+}
+
+.dragPreview span{
+    flex:1;
+    height:8px;
+    border-radius:999px;
+}
+
+.dragPreview .src{
+    background:#4f8fcf;
+}
+
+.dragPreview .yes{
+    background:#43ad6d;
+}
+
+.dragPreview .no{
+    background:#db655f;
+}
+
+/* =========================================================
+   Main features
+========================================================= */
+
+.grid4{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:22px;
+    box-shadow:0 12px 35px rgba(8,26,49,.055);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+}
+
+.ico{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#0c2d54,#1e5fa7);
+    color:var(--gold2);
+    display:grid;
+    place-items:center;
+    font-size:23px;
+    margin-bottom:13px;
+}
+
+.card h3{
+    font-size:18px;
+    margin:0 0 7px;
+}
+
+.card p{
+    font-size:13px;
+    color:var(--muted);
+    margin:0;
+}
+
+/* =========================================================
+   Smart workflow
+========================================================= */
+
+.dark{
+    background:linear-gradient(135deg,#07192f,#0d315b);
+    color:white;
+}
+
+.dark .head h2{
+    color:white;
+}
+
+.dark .head p{
+    color:#cad7e7;
+}
+
+.experience{
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+    gap:34px;
+    align-items:center;
+}
+
+.shot{
+    background:#e8eef6;
+    padding:9px;
+    border-radius:24px;
+    box-shadow:0 30px 70px rgba(0,0,0,.28);
+}
+
+.shot img{
+    border-radius:14px;
+}
+
+.list{
+    display:grid;
+    gap:13px;
+}
+
+.item{
+    display:flex;
+    gap:13px;
+    align-items:flex-start;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    padding:15px;
+}
+
+.item b{
+    display:block;
+    color:var(--gold2);
+    margin-bottom:3px;
+}
+
+.item span{
+    font-size:13px;
+    color:#ccdaea;
+}
+
+.num{
+    min-width:38px;
+    height:38px;
+    border-radius:12px;
+    background:rgba(255,217,119,.12);
+    display:grid;
+    place-items:center;
+    color:var(--gold2);
+    font-weight:900;
+}
+
+/* =========================================================
+   Drag/drop showcase
+========================================================= */
+
+.smartEdit{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:38px;
+    align-items:center;
+}
+
+.editCopy h2{
+    font-size:38px;
+    line-height:1.35;
+    color:var(--navy);
+    margin:8px 0 13px;
+}
+
+.editCopy p{
+    color:var(--muted);
+}
+
+.editChecks{
+    display:grid;
+    gap:11px;
+    margin-top:21px;
+}
+
+.editCheck{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:14px;
+    font-weight:700;
+}
+
+.editCheck i{
+    font-style:normal;
+    width:27px;
+    height:27px;
+    border-radius:9px;
+    display:grid;
+    place-items:center;
+    flex:0 0 auto;
+}
+
+.editCheck.green i{
+    background:#e6f7ed;
+    color:#26834b;
+}
+
+.editCheck.blue i{
+    background:#e7f1fc;
+    color:#2467ae;
+}
+
+.editCheck.red i{
+    background:#fdeaea;
+    color:#ba4040;
+}
+
+.fakeBoard{
+    background:#f7f9fc;
+    border:1px solid #dfe6ee;
+    border-radius:24px;
+    padding:18px;
+    box-shadow:var(--shadow);
+}
+
+.fakeHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.fakeHeader b{
+    color:var(--navy);
+}
+
+.fakeHeader small{
+    color:var(--muted);
+}
+
+.scheduleGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+}
+
+.slot{
+    min-height:76px;
+    border-radius:12px;
+    border:1px solid #dfe6ee;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:8px;
+    font-size:11px;
+    color:#536579;
+}
+
+.slot.source{
+    background:#e6f1fc;
+    border:2px solid #4b8dd0;
+    color:#1a5f9c;
+    font-weight:900;
+}
+
+.slot.valid{
+    background:#e7f8ee;
+    border:2px solid #43a96a;
+    color:#267848;
+    font-weight:900;
+}
+
+.slot.invalid{
+    background:#fdecec;
+    border:2px solid #d9655e;
+    color:#ad3b36;
+    font-weight:900;
+}
+
+/* =========================================================
+   Visual cards
+========================================================= */
+
+.visualGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.visual{
+    position:relative;
+    min-height:310px;
+    overflow:hidden;
+    border-radius:24px;
+    padding:24px;
+    color:white;
+    box-shadow:var(--shadow);
+    background:linear-gradient(160deg,#09203c,#164a7e);
+}
+
+.visual:before{
+    content:"";
+    position:absolute;
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    background:rgba(255,215,113,.12);
+    left:-50px;
+    top:-50px;
+}
+
+.visual h3{
+    position:relative;
+    font-size:23px;
+    margin:0 0 8px;
+}
+
+.visual p{
+    position:relative;
+    color:#d8e5f2;
+    font-size:13px;
+}
+
+.miniui{
+    position:absolute;
+    right:24px;
+    left:24px;
+    bottom:22px;
+    background:#f8fbff;
+    color:#1b3554;
+    border-radius:15px;
+    padding:12px;
+    box-shadow:0 20px 35px rgba(0,0,0,.2);
+}
+
+.rows{
+    display:grid;
+    gap:7px;
+}
+
+.r{
+    height:28px;
+    border-radius:7px;
+    background:#edf2f8;
+    display:grid;
+    grid-template-columns:70px 1fr 1fr 1fr;
+    gap:5px;
+    padding:4px;
+}
+
+.r span{
+    border-radius:5px;
+    background:#dce9f7;
+}
+
+.r span:first-child{
+    background:#0f3159;
+}
+
+.exam .miniui{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:6px;
+}
+
+.exam .miniui span{
+    height:42px;
+    background:#eaf1f9;
+    border-radius:7px;
+}
+
+.exam .miniui span:nth-child(3n){
+    background:#d9aa39;
+}
+
+.guide .miniui{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+}
+
+.guide .miniui span{
+    min-height:47px;
+    background:#edf4fb;
+    border-radius:8px;
+    display:grid;
+    place-items:center;
+    font-size:10px;
+    text-align:center;
+    padding:5px;
+}
+
+/* =========================================================
+   Modules
+========================================================= */
+
+.modules{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.module{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:white;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:15px;
+    transition:.22s;
+}
+
+.module:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow2);
+}
+
+.module .mi{
+    width:40px;
+    height:40px;
+    border-radius:11px;
+    background:#eef4fb;
+    display:grid;
+    place-items:center;
+}
+
+.module b{
+    font-size:14px;
+}
+
+.module small{
+    display:block;
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* =========================================================
+   Poster
+========================================================= */
+
+.posterWrap{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:38px;
+    align-items:center;
+}
+
+.poster{
+    max-width:390px;
+    margin:auto;
+    border-radius:28px;
+    box-shadow:0 28px 70px rgba(8,26,49,.22);
+}
+
+.selling h2{
+    font-size:38px;
+    line-height:1.35;
+    color:var(--navy);
+    margin:0 0 15px;
+}
+
+.selling p{
+    color:var(--muted);
+}
+
+.checks{
+    display:grid;
+    gap:10px;
+    margin:22px 0;
+}
+
+.check{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-weight:700;
+}
+
+.check i{
+    font-style:normal;
+    width:28px;
+    height:28px;
+    border-radius:9px;
+    background:#e9f7ee;
+    color:#26834b;
+    display:grid;
+    place-items:center;
+}
+
+/* =========================================================
+   License / update
+========================================================= */
+
+.duo{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.info{
+    border-radius:24px;
+    padding:28px;
+    background:white;
+    border:1px solid var(--line);
+    box-shadow:0 12px 35px rgba(8,26,49,.06);
+}
+
+.info h3{
+    font-size:23px;
+    margin:0 0 10px;
+}
+
+.info p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.info.goldbg{
+    background:linear-gradient(135deg,#fffaf0,#fff2c8);
+    border-color:#efdfb0;
+}
+
+.info.bluebg{
+    background:linear-gradient(135deg,#f3f8ff,#e5f0ff);
+    border-color:#cfe0f5;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    gap:12px;
+}
+
+details{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:15px 18px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:900;
+    color:var(--navy);
+}
+
+details p{
+    color:var(--muted);
+    font-size:13px;
+    margin:8px 0 0;
+}
+
+/* =========================================================
+   CTA / Footer
+========================================================= */
+
+.cta{
+    padding:0 0 80px;
+}
+
+.ctaBox{
+    overflow:hidden;
+    position:relative;
+    text-align:center;
+    background:linear-gradient(135deg,#07192f,#113e6e);
+    border-radius:30px;
+    padding:55px 25px;
+    color:white;
+    box-shadow:0 30px 70px rgba(8,26,49,.25);
+}
+
+.ctaBox:before,
+.ctaBox:after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(255,217,119,.14);
+    border-radius:50%;
+    width:360px;
+    height:360px;
+    top:-220px;
+}
+
+.ctaBox:before{
+    right:-100px;
+}
+
+.ctaBox:after{
+    left:-100px;
+}
+
+.ctaBox h2{
+    position:relative;
+    font-size:38px;
+    margin:0 0 10px;
+    color:var(--gold2);
+}
+
+.ctaBox p{
+    position:relative;
+    color:#d5e1ef;
+    max-width:700px;
+    margin:0 auto 22px;
+}
+
+.version{
+    font-size:12px;
+    color:#aebfd1;
+    margin-top:10px;
+}
+
+footer{
+    background:#061322;
+    color:#b8c8d9;
+    padding:32px 0;
+}
+
+.foot{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.foot b{
+    color:var(--gold2);
+}
+
+.wa{
+    position:fixed;
+    z-index:90;
+    left:22px;
+    bottom:22px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:var(--green);
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    box-shadow:0 14px 30px rgba(0,0,0,.22);
+    border:3px solid white;
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media(max-width:1050px){
+    .updateGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:950px){
+    .heroGrid,
+    .experience,
+    .posterWrap,
+    .smartEdit{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .window{
+        transform:none;
+    }
+
+    .grid4{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .visualGrid,
+    .modules{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .duo{
+        grid-template-columns:1fr;
+    }
+
+    .links{
+        display:none;
+    }
+
+    .poster{
+        max-width:320px;
+    }
+}
+
+@media(max-width:650px){
+    section{
+        padding:58px 0;
+    }
+
+    .hero{
+        padding:58px 0 70px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .lead{
+        font-size:15px;
+    }
+
+    .head h2,
+    .selling h2,
+    .editCopy h2,
+    .ctaBox h2{
+        font-size:29px;
+    }
+
+    .grid4,
+    .visualGrid,
+    .modules,
+    .updateGrid{
+        grid-template-columns:1fr;
+    }
+
+    .v3Shell{
+        padding:20px;
+    }
+
+    .v3Top{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .navbtn{
+        display:none;
+    }
+
+    .brand b{
+        font-size:18px;
+    }
+
+    .floatCard{
+        display:none;
+    }
+
+    .actions .btn{
+        width:100%;
+    }
+
+    .poster{
+        max-width:260px;
+    }
+
+    .scheduleGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
 </style>
 </head>
+
 <body>
-<nav class="nav"><div class="container navin"><a class="brand" href="#top"><img src="assets/logo.png" alt="شعار الشامخ"><div><b>الشامخ</b><small>لإدارة الجداول المدرسية</small></div></a><div class="links"><a href="#features">المميزات</a><a href="#experience">شاهد البرنامج</a><a href="#modules">الوحدات</a><a href="#faq">الأسئلة الشائعة</a></div><a class="navbtn" href="https://github.com/iqab1314-hue/AlShamikh-Updates/releases/latest/download/AlShamikhSetup.exe">تحميل البرنامج</a></div></nav>
-<header class="hero" id="top"><div class="container heroGrid"><div><span class="eyebrow">✦ برنامج عربي متكامل للمدارس</span><h1>اصنع جدول مدرستك مع <span>الشامخ</span> بطريقة أكثر ذكاءً وتنظيمًا</h1><p class="lead">من بيانات المدرسة والمعلمين والمواد والصفوف والأنصبة، إلى توليد جدول الحصص والاختبارات وإشغال الحصص والتقارير والطباعة — كل ذلك في برنامج واحد مصمم خصيصًا للعمل المدرسي.</p><div class="actions"><a class="btn gold" href="https://github.com/iqab1314-hue/AlShamikh-Updates/releases/latest/download/AlShamikhSetup.exe">⬇ جرّب الشامخ الآن</a><a class="btn green" href="https://wa.me/962778044495" target="_blank">💬 واتساب للتفعيل</a><a class="btn ghost" href="#experience">▶ شاهد الواجهة</a></div><div class="trust"><span class="pill">واجهة عربية</span><span class="pill">جدول حصص آلي</span><span class="pill">جدول اختبارات</span><span class="pill">نسخ احتياطي</span><span class="pill">تحديثات تلقائية</span><span class="pill">ترخيص سنوي</span></div></div><div class="window"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><img src="assets/dashboard.png" alt="لوحة تحكم برنامج الشامخ"><div class="floatCard fc1"><strong>12+</strong>وحدة عمل مترابطة</div><div class="floatCard fc2"><strong>واجهة واضحة</strong>كل ما تحتاجه من مكان واحد</div></div></div></header>
-<section id="features"><div class="container"><div class="head reveal"><div class="tag">لماذا الشامخ؟</div><h2>لأن الجدول المدرسي لا يجب أن يكون صداعًا كل فصل</h2><p>صُمم الشامخ ليحوّل عملية إعداد الجدول من خطوات مشتتة ومعقدة إلى مسار واضح يبدأ بالبيانات وينتهي بجدول جاهز للطباعة والاستخدام.</p></div><div class="grid4"><div class="card reveal"><div class="ico">⚙</div><h3>إدارة البيانات</h3><p>المدرسة، المعلمون، المواد، الصفوف والشعب ضمن قاعدة بيانات واحدة منظمة.</p></div><div class="card reveal"><div class="ico">🧮</div><h3>الأنصبة والتوزيع</h3><p>ربط المعلمين بالمواد والشعب وتحديد عدد الحصص الأسبوعية بدقة.</p></div><div class="card reveal"><div class="ico">🗓</div><h3>توليد جدول الحصص</h3><p>إنشاء جدول أسبوعي يراعي التعارضات وأوقات عدم توفر المعلمين والقيود المحددة.</p></div><div class="card reveal"><div class="ico">📝</div><h3>جدول الاختبارات</h3><p>إعداد فترات الاختبارات والمواد وتوليد الجدول وحفظ سجل الإصدارات.</p></div><div class="card reveal"><div class="ico">🔄</div><h3>إشغال الحصص</h3><p>معرفة المعلمين المتاحين لكل حصة اعتمادًا على الجدول وأوقات عدم التوفر.</p></div><div class="card reveal"><div class="ico">🖨</div><h3>طباعة احترافية</h3><p>جدول المدرسة والمعلم والصف والبرنامج اليومي والاختبارات والتقارير.</p></div><div class="card reveal"><div class="ico">💾</div><h3>نسخ احتياطي</h3><p>إنشاء نسخ احتياطية واستعادتها للحفاظ على بيانات المدرسة.</p></div><div class="card reveal"><div class="ico">⬆</div><h3>تحديثات رسمية</h3><p>فحص تلقائي للإصدارات الجديدة من رابط التحديث الرسمي للبرنامج.</p></div></div></div></section>
-<section class="dark" id="experience"><div class="container"><div class="head reveal"><div class="tag" style="color:#ffd977">شاهد البرنامج</div><h2>واجهة عملية تعرف طريقك فيها من أول مرة</h2><p>لوحة التحكم الحقيقية لبرنامج الشامخ تعرض أهم الوظائف مباشرة وتضع جدول الحصص والاختبارات والإشغال والتقارير في متناولك.</p></div><div class="experience"><div class="shot reveal"><img src="assets/dashboard.png" alt="واجهة برنامج الشامخ"></div><div class="list"><div class="item reveal"><div class="num">01</div><div><b>ابدأ ببيانات المدرسة</b><span>حدد العام الدراسي والفصل وأيام الدوام وعدد الحصص.</span></div></div><div class="item reveal"><div class="num">02</div><div><b>أدخل المعلمين والمواد والشعب</b><span>أنشئ قاعدة البيانات الأساسية التي سيبني عليها البرنامج الجدول.</span></div></div><div class="item reveal"><div class="num">03</div><div><b>اضبط الأنصبة والأوقات</b><span>حدد نصيب كل معلم وأوقات عدم التوفر والقيود المطلوبة.</span></div></div><div class="item reveal"><div class="num">04</div><div><b>ولّد وراجع واطبع</b><span>أنشئ الجدول ثم راجعه واطبع جدول المدرسة أو المعلم أو الصف.</span></div></div></div></div></div></section>
-<section><div class="container"><div class="head reveal"><div class="tag">صور توضيحية من وظائف النظام</div><h2>ما الذي ستنجزه داخل الشامخ؟</h2><p>هذه معاينات بصرية توضح شكل العمل والوظائف الرئيسية داخل النظام، بينما لقطة لوحة التحكم أعلاه هي من واجهة البرنامج الفعلية.</p></div><div class="visualGrid"><div class="visual reveal"><h3>جدول الحصص</h3><p>شبكة أسبوعية منظمة للصفوف والمعلمين والحصص.</p><div class="miniui rows"><div class="r"><span></span><span></span><span></span><span></span></div><div class="r"><span></span><span></span><span></span><span></span></div><div class="r"><span></span><span></span><span></span><span></span></div><div class="r"><span></span><span></span><span></span><span></span></div></div></div><div class="visual exam reveal"><h3>جدول الاختبارات</h3><p>تنظيم مواد الاختبار ضمن الفترة المحددة وحفظ سجل الجداول.</p><div class="miniui"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="visual sub reveal"><h3>إشغال الحصص</h3><p>اعرف المعلمين المتاحين لكل حصة بسرعة عند الحاجة للتغطية.</p><div class="miniui"><span>معلم متاح</span><span>معلم متاح</span><span>معلم متاح</span><span>معلم متاح</span></div></div></div></div></section>
-<section id="modules" style="background:#eef3f9"><div class="container"><div class="head reveal"><div class="tag">نظام كامل</div><h2>كل وحدات العمل التي تحتاجها المدرسة</h2></div><div class="modules"><div class="module reveal"><div class="mi">🏫</div><div><b>بيانات المدرسة</b><small>الإعداد الأساسي للنظام</small></div></div><div class="module reveal"><div class="mi">👨‍🏫</div><div><b>المعلمون</b><small>الأسماء والاختصارات والأنصبة</small></div></div><div class="module reveal"><div class="mi">📚</div><div><b>المواد</b><small>المواد والرموز ومواد الاختبار</small></div></div><div class="module reveal"><div class="mi">🏷</div><div><b>الصفوف والشعب</b><small>تنظيم الشعب وحصصها</small></div></div><div class="module reveal"><div class="mi">📌</div><div><b>الأنصبة</b><small>ربط المعلم بالمادة والشعبة</small></div></div><div class="module reveal"><div class="mi">⏰</div><div><b>أوقات المعلمين</b><small>أوقات عدم التوفر</small></div></div><div class="module reveal"><div class="mi">📅</div><div><b>جدول الحصص</b><small>توليد وعرض وطباعة</small></div></div><div class="module reveal"><div class="mi">📝</div><div><b>جدول الاختبارات</b><small>توليد وسجل وطباعة</small></div></div><div class="module reveal"><div class="mi">🔄</div><div><b>إشغال الحصص</b><small>المعلمون المتاحون لكل حصة</small></div></div><div class="module reveal"><div class="mi">📊</div><div><b>التقارير</b><small>تقارير المدرسة والجداول</small></div></div><div class="module reveal"><div class="mi">🔐</div><div><b>الترخيص</b><small>ترخيص سنوي مرتبط بالجهاز</small></div></div><div class="module reveal"><div class="mi">⚙</div><div><b>الإعدادات</b><small>النسخ الاحتياطي والتحديث والصيانة</small></div></div></div></div></section>
-<section><div class="container posterWrap"><img class="poster reveal" src="assets/poster.png" alt="إعلان برنامج الشامخ"><div class="selling reveal"><div class="tag">مصمم للمدرسة العربية</div><h2>من شاشة البرنامج إلى الورق… كل شيء مرتب</h2><p>يوفر الشامخ مخرجات مخصصة لاحتياجات الإدارة المدرسية، مع صفحات واضحة للطباعة والاستخدام اليومي.</p><div class="checks"><div class="check"><i>✓</i> جدول المدرسة الكامل</div><div class="check"><i>✓</i> جدول كل معلم</div><div class="check"><i>✓</i> جدول كل صف وشعبة</div><div class="check"><i>✓</i> البرنامج اليومي</div><div class="check"><i>✓</i> جداول الاختبارات</div><div class="check"><i>✓</i> إشغال الحصص والتقارير</div></div><a class="btn gold" href="https://github.com/iqab1314-hue/AlShamikh-Updates/releases/latest/download/AlShamikhSetup.exe">⬇ تحميل أحدث إصدار</a></div></div></section>
-<section style="background:#fff"><div class="container"><div class="head reveal"><div class="tag">الترخيص والتحديث</div><h2>برنامج رسمي، وتحديثاته تبقى معك</h2></div><div class="duo"><div class="info goldbg reveal"><h3>🔐 ترخيص سنوي مرتبط بجهاز واحد</h3><p>بعد تثبيت البرنامج يظهر رقم الجهاز في صفحة الترخيص. ترسل رقم الجهاز أو صورة الصفحة عبر واتساب للحصول على كود التفعيل الرسمي.</p><a class="btn green" style="margin-top:14px" href="https://wa.me/962778044495" target="_blank">طلب التفعيل عبر واتساب</a></div><div class="info bluebg reveal"><h3>⬆ فحص تلقائي للتحديثات</h3><p>البرنامج مرتبط برابط تحديث رسمي ثابت. عند إصدار نسخة أحدث يمكن اكتشافها وتنزيل ملف التثبيت الجديد من المصدر الرسمي.</p><div id="liveVersion" style="margin-top:14px;font-weight:900;color:#1e5fa7">جاري قراءة أحدث إصدار…</div></div></div></div></section>
-<section id="faq"><div class="container"><div class="head reveal"><div class="tag">أسئلة شائعة</div><h2>قبل أن تحمّل البرنامج</h2></div><div class="faq"><details class="reveal"><summary>هل البرنامج باللغة العربية؟</summary><p>نعم، الواجهة الأساسية للبرنامج عربية ومصممة للاستخدام المدرسي.</p></details><details class="reveal"><summary>هل يمكن طباعة جدول المعلم والصف والمدرسة؟</summary><p>نعم، يتضمن البرنامج خدمات طباعة لجدول المدرسة والمعلم والصف والبرنامج اليومي، إضافة إلى الاختبارات والتقارير.</p></details><details class="reveal"><summary>هل يحفظ البرنامج بيانات المدرسة؟</summary><p>نعم، يعتمد البرنامج قاعدة بيانات محلية على الجهاز مع إمكانية إنشاء نسخ احتياطية واستعادتها.</p></details><details class="reveal"><summary>كيف يتم التفعيل؟</summary><p>بعد التثبيت تظهر صفحة الترخيص ورقم الجهاز. يتم إرسال رقم الجهاز عبر واتساب للأستاذ عقاب محمد المحاسنة للحصول على كود التفعيل.</p></details><details class="reveal"><summary>كيف تصل التحديثات؟</summary><p>يفحص البرنامج ملف التحديث الرسمي على الإنترنت، وإذا توفر إصدار أحدث يمكن تنزيل ملف التثبيت الجديد.</p></details></div></div></section>
-<section class="cta"><div class="container"><div class="ctaBox reveal"><h2>جاهز تشوف كيف يغيّر الشامخ طريقة إعداد الجدول؟</h2><p>حمّل النسخة الرسمية، ثبّتها على جهاز المدرسة، وشاهد كل وحدات البرنامج من لوحة تحكم واحدة.</p><div class="actions" style="justify-content:center"><a class="btn gold" href="https://github.com/iqab1314-hue/AlShamikh-Updates/releases/latest/download/AlShamikhSetup.exe">⬇ تحميل برنامج الشامخ</a><a class="btn green" href="https://wa.me/962778044495" target="_blank">💬 تواصل واتساب</a></div><div class="version" id="ctaVersion">أحدث إصدار رسمي</div></div></div></section>
-<footer><div class="container foot"><div><b>الشامخ لإدارة الجداول المدرسية</b><br><small>إعداد الأستاذ عقاب محمد المحاسنة — 0778044495</small></div><div>Al Shamikh © 2026</div></div></footer>
-<a class="wa" href="https://wa.me/962778044495" target="_blank" aria-label="واتساب">✆</a>
+
+<!-- =========================================================
+     Navigation
+========================================================= -->
+
+<nav class="nav">
+    <div class="container navin">
+
+        <a class="brand" href="#top">
+            <img src="assets/logo.png" alt="شعار الشامخ">
+            <div>
+                <b>الشامخ</b>
+                <small>لإدارة الجداول المدرسية</small>
+            </div>
+        </a>
+
+        <div class="links">
+            <a href="#new">جديد V3</a>
+            <a href="#features">المميزات</a>
+            <a href="#experience">طريقة العمل</a>
+            <a href="#modules">الوحدات</a>
+            <a href="#faq">الأسئلة الشائعة</a>
+        </div>
+
+        <a class="navbtn"
+           href="https://github.com/iqab1314-hue/AlShamikh-Updates/releases/latest/download/AlShamikhSetup.exe">
+            تحميل البرنامج
+        </a>
+
+    </div>
+</nav>
+
+
+<!-- =========================================================
+     Hero
+========================================================= -->
+
+<header class="hero" id="top">
+
+    <div class="container heroGrid">
+
+        <div>
+
+            <span class="eyebrow">✦ الإصدار الجديد V3.0.0</span>
+
+            <h1>
+                جدول مدرستك…
+                <span>بدون تعارض</span>
+                وبطريقة أسهل
+            </h1>
+
+            <p class="lead">
+                الشامخ لإدارة الجداول المدرسية يجمع بيانات المدرسة والمعلمين والأنصبة والأوقات
+                في نظام واحد، ثم ينشئ جدولًا منظمًا مع فحص التعارضات وإمكانية التعديل بالسحب
+                والتبديل والطباعة والتقارير.
+            </p>
+
+            <div class="heroNew">
+                <span class="newChip"><strong>✓</strong> منع التعارضات</span>
+                <span class="newChip"><strong>✓</strong> سحب وتبديل بصري</span>
+                <span class="newChip"><strong>✓</strong> دليل استخدام تفاعلي</span>
+                <span class="newChip"><strong>✓</strong> فحص جاهزية قبل التوليد</span>
+            </div>
+
+            <div class="actions">
+
+                <a class="btn gold"
+                   href="https://github.com/iqab1314-hue/AlShamikh-Updates/releases/latest/download/AlShamikhSetup.exe">
+                    ⬇ حمّل V3 الآن
+                </a>
+
+                <a class="btn green"
+                   href="https://wa.me/962778044495"
+                   target="_blank">
+                    💬 واتساب للتفعيل
+                </a>
+
+                <a class="btn ghost"
+                   href="#new">
+                    ✨ شاهد الجديد
+                </a>
+
+            </div>
+
+            <div class="trust">
+                <span class="pill">واجهة عربية</span>
+                <span class="pill">Windows 10 / 11</span>
+                <span class="pill">إدارة الأنصبة</span>
+                <span class="pill">Excel</span>
+                <span class="pill">نسخ احتياطي</span>
+                <span class="pill">تحديثات رسمية</span>
+            </div>
+
+        </div>
+
+
+        <div class="windowWrap">
+
+            <div class="window">
+                <div class="bar">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <img src="assets/dashboard.png"
+                     alt="لوحة تحكم برنامج الشامخ">
+            </div>
+
+            <div class="floatCard fc1">
+                <strong>بدون تعارض</strong>
+                فحص أمان قبل اعتماد الجدول
+            </div>
+
+            <div class="floatCard fc2">
+                <strong>V3.0.0</strong>
+                تجربة استخدام أكثر وضوحًا
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     What's new V3
+========================================================= -->
+
+<section class="v3Section" id="new">
+
+    <div class="container">
+
+        <div class="v3Shell reveal">
+
+            <div class="v3Top">
+
+                <div class="v3Title">
+                    <div class="tag">أهم إضافات الإصدار الجديد</div>
+                    <h2>ما الجديد في V3.0.0؟</h2>
+                    <p>
+                        تحديثات عملية ركزنا فيها على دقة الجدول، سهولة التعديل، وسرعة تجهيز بيانات المدرسة.
+                    </p>
+                </div>
+
+                <div class="versionBadge">
+                    V3.0.0
+                    <small>الإصدار الحالي</small>
+                </div>
+
+            </div>
+
+            <div class="updateGrid">
+
+                <div class="updateCard critical">
+                    <div class="updateIcon">🛡</div>
+                    <h3>جدول بلا تعارض</h3>
+                    <p>
+                        لا يتم اعتماد الجدول إذا وُجد تعارض معلم أو شعبة أو حصة في وقت غير متاح للمعلم.
+                    </p>
+                </div>
+
+                <div class="updateCard drag">
+                    <div class="updateIcon">↔</div>
+                    <h3>سحب وتبديل ذكي</h3>
+                    <p>
+                        اسحب الحصة أو بدّلها داخل الشعبة، مع توضيح فوري للخانة المسموحة وغير المسموحة.
+                    </p>
+                    <div class="dragPreview">
+                        <span class="src"></span>
+                        <span class="yes"></span>
+                        <span class="no"></span>
+                    </div>
+                </div>
+
+                <div class="updateCard">
+                    <div class="updateIcon">✓</div>
+                    <h3>فحص الجاهزية</h3>
+                    <p>
+                        اعرف ما الذي بقي قبل توليد الجدول، مع تنبيهات للأنصبة والنواقص والمشكلات الحرجة.
+                    </p>
+                </div>
+
+                <div class="updateCard">
+                    <div class="updateIcon">📘</div>
+                    <h3>دليل استخدام تفاعلي</h3>
+                    <p>
+                        مركز تعليمات داخل البرنامج على شكل أقسام وبطاقات، تختار منه الموضوع الذي تحتاجه فقط.
+                    </p>
+                </div>
+
+                <div class="updateCard">
+                    <div class="updateIcon">📊</div>
+                    <h3>متابعة الأنصبة</h3>
+                    <p>
+                        النصاب المطلوب والمسند والمتبقي وحالة كل معلم تظهر مباشرة أثناء العمل.
+                    </p>
+                </div>
+
+                <div class="updateCard">
+                    <div class="updateIcon">📥</div>
+                    <h3>إدخال جماعي وExcel</h3>
+                    <p>
+                        إضافة المعلمين والصفوف والشعب دفعة واحدة مع النسخ من Excel واستيراد ملفات XLSX.
+                    </p>
+                </div>
+
+                <div class="updateCard">
+                    <div class="updateIcon">↶</div>
+                    <h3>تراجع عن التعديلات</h3>
+                    <p>
+                        إمكانية التراجع عن تعديلات الأنصبة وعن آخر نقل أو تبديل يدوي في جدول الحصص.
+                    </p>
+                </div>
+
+                <div class="updateCard">
+                    <div class="updateIcon">⚙</div>
+                    <h3>معالج إعداد خطوة بخطوة</h3>
+                    <p>
+                        مسار واضح من بيانات المدرسة حتى الجاهزية والتوليد، مع معرفة الخطوات المكتملة والناقصة.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     Main features
+========================================================= -->
+
+<section id="features">
+
+    <div class="container">
+
+        <div class="head reveal">
+            <div class="tag">لماذا الشامخ؟</div>
+            <h2>بدل ساعات من المراجعة اليدوية… اجعل النظام يتابع التفاصيل عنك</h2>
+            <p>
+                صُمم الشامخ ليحوّل إعداد الجدول إلى مسار واضح يبدأ من البيانات وينتهي
+                بجدول قابل للمراجعة والتعديل والطباعة.
+            </p>
+        </div>
+
+        <div class="grid4">
+
+            <div class="card reveal">
+                <div class="ico">🏫</div>
+                <h3>إدارة بيانات المدرسة</h3>
+                <p>
+                    المدرسة والمعلمون والمواد والصفوف والشعب وأيام الدوام ضمن قاعدة بيانات منظمة.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="ico">🧮</div>
+                <h3>الأنصبة والتوزيع</h3>
+                <p>
+                    توزيع المعلمين يدويًا مع متابعة نصاب المعلم والشعبة والتنبيه عند التجاوز.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="ico">⏰</div>
+                <h3>أوقات المعلمين</h3>
+                <p>
+                    جميع الأوقات متاحة افتراضيًا، وتحدد فقط الأوقات التي لا يستطيع المعلم التدريس خلالها.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="ico">📅</div>
+                <h3>توليد جدول الحصص</h3>
+                <p>
+                    إنشاء جدول أسبوعي مع احترام أوقات المعلمين والحصص المثبتة والقيود المحددة.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="ico">🛡</div>
+                <h3>فحص التعارضات</h3>
+                <p>
+                    فحص الجدول ومنع اعتماد نتيجة فيها معلم أو شعبة في مكانين بنفس الوقت.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="ico">📝</div>
+                <h3>جدول الاختبارات</h3>
+                <p>
+                    إعداد فترات الاختبارات والمواد وتوليد الجدول وحفظ السجل والطباعة.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="ico">🔄</div>
+                <h3>إشغال الحصص</h3>
+                <p>
+                    عرض المعلمين المتاحين للحصة اعتمادًا على الجدول وأوقات عدم التوفر.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="ico">🖨</div>
+                <h3>التقارير والطباعة</h3>
+                <p>
+                    جدول المدرسة والمعلم والصف والبرنامج اليومي والاختبارات والتقارير.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     Experience
+========================================================= -->
+
+<section class="dark" id="experience">
+
+    <div class="container">
+
+        <div class="head reveal">
+            <div class="tag" style="color:#ffd977">طريقة العمل</div>
+            <h2>من أول تشغيل حتى طباعة الجدول</h2>
+            <p>
+                واجهة مترابطة تقودك من إدخال البيانات إلى توليد الجدول ومراجعته خطوة بخطوة.
+            </p>
+        </div>
+
+        <div class="experience">
+
+            <div class="shot reveal">
+                <img src="assets/dashboard.png"
+                     alt="واجهة برنامج الشامخ">
+            </div>
+
+            <div class="list">
+
+                <div class="item reveal">
+                    <div class="num">01</div>
+                    <div>
+                        <b>أدخل بيانات المدرسة</b>
+                        <span>
+                            العام الدراسي والفصل وأيام الدوام وعدد الحصص.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="item reveal">
+                    <div class="num">02</div>
+                    <div>
+                        <b>أضف المعلمين والمواد والشعب</b>
+                        <span>
+                            ويمكن تسريع الإدخال باستخدام Excel والإضافة الجماعية.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="item reveal">
+                    <div class="num">03</div>
+                    <div>
+                        <b>وزّع الأنصبة وحدد الأوقات</b>
+                        <span>
+                            تابع نصاب كل معلم وحدد فقط أوقات عدم التوفر.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="item reveal">
+                    <div class="num">04</div>
+                    <div>
+                        <b>افحص الجاهزية</b>
+                        <span>
+                            اعرف النواقص والتجاوزات قبل محاولة إنشاء الجدول.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="item reveal">
+                    <div class="num">05</div>
+                    <div>
+                        <b>ولّد وعدّل واطبع</b>
+                        <span>
+                            ولّد الجدول، عدّل بالسحب والتبديل، ثم افحص التعارضات واطبع.
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     Smart editing
+========================================================= -->
+
+<section>
+
+    <div class="container smartEdit">
+
+        <div class="editCopy reveal">
+
+            <div class="tag">تعديل يدوي أكثر وضوحًا</div>
+
+            <h2>حرّك الحصة… والبرنامج يخبرك أين يمكن وضعها</h2>
+
+            <p>
+                بعد توليد الجدول يمكنك تحسين ترتيبه يدويًا دون تغيير المعلم أو المادة أو الشعبة أو النصاب.
+            </p>
+
+            <div class="editChecks">
+
+                <div class="editCheck blue">
+                    <i>●</i>
+                    <div>
+                        <b>الحصة المختارة تصبح باللون الأزرق</b><br>
+                        حتى تعرف بوضوح أي حصة تقوم بسحبها.
+                    </div>
+                </div>
+
+                <div class="editCheck green">
+                    <i>✓</i>
+                    <div>
+                        <b>الخانة الخضراء = النقل أو التبديل مسموح</b><br>
+                        بعد فحص توفر المعلمين وعدم وجود تعارض.
+                    </div>
+                </div>
+
+                <div class="editCheck red">
+                    <i>×</i>
+                    <div>
+                        <b>الخانة الحمراء = غير مسموح</b><br>
+                        ولا يسمح البرنامج بإسقاط الحصة فيها.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="fakeBoard reveal">
+
+            <div class="fakeHeader">
+                <div>
+                    <b>مثال توضيحي للتعديل</b><br>
+                    <small>السحب داخل الشعبة نفسها</small>
+                </div>
+                <small>تعديل محفوظ تلقائيًا</small>
+            </div>
+
+            <div class="scheduleGrid">
+
+                <div class="slot">رياضيات<br>أ. محمد</div>
+                <div class="slot valid">✓ مكان متاح</div>
+                <div class="slot">علوم<br>أ. أحمد</div>
+                <div class="slot invalid">× تعارض</div>
+
+                <div class="slot">لغة عربية<br>أ. خالد</div>
+                <div class="slot source">الحصة المسحوبة</div>
+                <div class="slot valid">✓ تبديل ممكن</div>
+                <div class="slot">لغة إنجليزية<br>أ. سامر</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     Visuals
+========================================================= -->
+
+<section style="background:#eef3f9">
+
+    <div class="container">
+
+        <div class="head reveal">
+            <div class="tag">وظائف رئيسية</div>
+            <h2>كل ما تحتاجه لإدارة الجدول من مكان واحد</h2>
+            <p>
+                بالإضافة إلى جدول الحصص، يتضمن النظام أدوات مساعدة للاختبارات والتعليمات والطباعة والمتابعة.
+            </p>
+        </div>
+
+        <div class="visualGrid">
+
+            <div class="visual reveal">
+                <h3>جدول الحصص</h3>
+                <p>
+                    شبكة أسبوعية منظمة للصفوف والمعلمين والحصص.
+                </p>
+
+                <div class="miniui rows">
+                    <div class="r"><span></span><span></span><span></span><span></span></div>
+                    <div class="r"><span></span><span></span><span></span><span></span></div>
+                    <div class="r"><span></span><span></span><span></span><span></span></div>
+                    <div class="r"><span></span><span></span><span></span><span></span></div>
+                </div>
+            </div>
+
+
+            <div class="visual exam reveal">
+                <h3>جدول الاختبارات</h3>
+                <p>
+                    تنظيم المواد ضمن الفترة المحددة وحفظ سجل الجداول.
+                </p>
+
+                <div class="miniui">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+
+
+            <div class="visual guide reveal">
+                <h3>دليل الاستخدام</h3>
+                <p>
+                    اختر القسم ثم الموضوع المطلوب لتظهر لك التعليمات فقط.
+                </p>
+
+                <div class="miniui">
+                    <span>الأنصبة</span>
+                    <span>الجدول</span>
+                    <span>الأوقات</span>
+                    <span>التفعيل</span>
+                    <span>الطباعة</span>
+                    <span>النسخ الاحتياطي</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     Modules
+========================================================= -->
+
+<section id="modules">
+
+    <div class="container">
+
+        <div class="head reveal">
+            <div class="tag">نظام كامل</div>
+            <h2>وحدات مترابطة تخدم العمل المدرسي</h2>
+        </div>
+
+        <div class="modules">
+
+            <div class="module reveal">
+                <div class="mi">🏫</div>
+                <div>
+                    <b>بيانات المدرسة</b>
+                    <small>الإعداد الأساسي للنظام</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">👨‍🏫</div>
+                <div>
+                    <b>المعلمون</b>
+                    <small>البيانات والنصاب والحالة</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">📚</div>
+                <div>
+                    <b>المواد</b>
+                    <small>المواد والرموز</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">🎓</div>
+                <div>
+                    <b>الصفوف والشعب</b>
+                    <small>التنظيم والنصاب الأسبوعي</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">📋</div>
+                <div>
+                    <b>الأنصبة</b>
+                    <small>ربط المعلم بالمادة والشعبة</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">⏰</div>
+                <div>
+                    <b>أوقات المعلمين</b>
+                    <small>أوقات عدم التوفر فقط</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">✓</div>
+                <div>
+                    <b>فحص الجاهزية</b>
+                    <small>ما الذي بقي قبل التوليد؟</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">📅</div>
+                <div>
+                    <b>جدول الحصص</b>
+                    <small>توليد وتعديل وطباعة</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">📝</div>
+                <div>
+                    <b>جدول الاختبارات</b>
+                    <small>توليد وسجل وطباعة</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">🔄</div>
+                <div>
+                    <b>إشغال الحصص</b>
+                    <small>المعلمون المتاحون</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">📊</div>
+                <div>
+                    <b>التقارير</b>
+                    <small>تقارير المدرسة والجداول</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">📘</div>
+                <div>
+                    <b>دليل الاستخدام</b>
+                    <small>تعليمات تفاعلية داخل البرنامج</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">🔐</div>
+                <div>
+                    <b>الترخيص</b>
+                    <small>ترخيص سنوي مرتبط بالجهاز</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">💾</div>
+                <div>
+                    <b>النسخ الاحتياطي</b>
+                    <small>حماية واستعادة البيانات</small>
+                </div>
+            </div>
+
+            <div class="module reveal">
+                <div class="mi">⬆</div>
+                <div>
+                    <b>التحديثات</b>
+                    <small>اكتشاف الإصدارات الجديدة</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     Poster / Print
+========================================================= -->
+
+<section style="background:#fff">
+
+    <div class="container posterWrap">
+
+        <img class="poster reveal"
+             src="assets/poster.png"
+             alt="إعلان برنامج الشامخ">
+
+        <div class="selling reveal">
+
+            <div class="tag">مخرجات جاهزة للاستخدام</div>
+
+            <h2>من شاشة البرنامج إلى الورق… كل شيء مرتب</h2>
+
+            <p>
+                يوفر الشامخ عروضًا وتقارير مخصصة للإدارة والمعلمين والصفوف، مع خيارات للطباعة والاستخدام اليومي.
+            </p>
+
+            <div class="checks">
+                <div class="check"><i>✓</i> جدول المدرسة الكامل</div>
+                <div class="check"><i>✓</i> جدول كل معلم</div>
+                <div class="check"><i>✓</i> جدول كل صف وشعبة</div>
+                <div class="check"><i>✓</i> البرنامج اليومي</div>
+                <div class="check"><i>✓</i> جداول الاختبارات</div>
+                <div class="check"><i>✓</i> التقارير وإشغال الحصص</div>
+            </div>
+
+            <a class="btn gold"
+               href="https://github.com/iqab1314-hue/AlShamikh-Updates/releases/latest/download/AlShamikhSetup.exe">
+                ⬇ تحميل أحدث إصدار
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     License / Updates
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="head reveal">
+            <div class="tag">الترخيص والتحديث</div>
+            <h2>نسخة رسمية وتحديثات مستمرة</h2>
+        </div>
+
+        <div class="duo">
+
+            <div class="info goldbg reveal">
+
+                <h3>🔐 ترخيص سنوي مرتبط بجهاز واحد</h3>
+
+                <p>
+                    بعد تثبيت البرنامج يظهر رقم الجهاز في صفحة الترخيص.
+                    أرسل رقم الجهاز وصورة إثبات الدفع عبر واتساب للحصول على مفتاح التفعيل الرسمي.
+                </p>
+
+                <a class="btn green"
+                   style="margin-top:14px"
+                   href="https://wa.me/962778044495"
+                   target="_blank">
+                    طلب التفعيل عبر واتساب
+                </a>
+
+            </div>
+
+
+            <div class="info bluebg reveal">
+
+                <h3>⬆ فحص تلقائي للتحديثات</h3>
+
+                <p>
+                    البرنامج مرتبط بمصدر تحديث رسمي. عند إصدار نسخة أحدث يمكن اكتشافها
+                    وتنزيل ملف التثبيت الجديد مع المحافظة على بيانات المدرسة.
+                </p>
+
+                <div id="liveVersion"
+                     style="margin-top:14px;font-weight:900;color:#1e5fa7">
+                    جاري قراءة أحدث إصدار…
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section id="faq" style="background:#fff">
+
+    <div class="container">
+
+        <div class="head reveal">
+            <div class="tag">أسئلة شائعة</div>
+            <h2>قبل أن تحمّل البرنامج</h2>
+        </div>
+
+        <div class="faq">
+
+            <details class="reveal">
+                <summary>هل يولد البرنامج جدولًا بدون تعارض؟</summary>
+                <p>
+                    نعم، يتم فحص تعارض المعلمين والشعب وأوقات عدم توفر المعلمين، ولا يتم اعتماد جدول إذا اكتشف النظام تعارضًا أساسيًا.
+                </p>
+            </details>
+
+            <details class="reveal">
+                <summary>هل يمكن تعديل الجدول بعد التوليد؟</summary>
+                <p>
+                    نعم، يمكن نقل الحصص أو التبديل بينها داخل الشعبة بالسحب والإفلات، مع فحص صلاحية الوقت قبل الحفظ.
+                </p>
+            </details>
+
+            <details class="reveal">
+                <summary>هل يمكن إدخال البيانات من Excel؟</summary>
+                <p>
+                    يدعم البرنامج الإدخال الجماعي للمعلمين والصفوف والشعب، مع النسخ من Excel واستيراد ملفات XLSX.
+                </p>
+            </details>
+
+            <details class="reveal">
+                <summary>هل يمكن طباعة جدول المعلم والصف والمدرسة؟</summary>
+                <p>
+                    نعم، يتضمن البرنامج خدمات عرض وطباعة لجدول المدرسة والمعلم والصف والبرنامج اليومي والاختبارات والتقارير.
+                </p>
+            </details>
+
+            <details class="reveal">
+                <summary>هل يحفظ البرنامج بيانات المدرسة؟</summary>
+                <p>
+                    نعم، يعتمد البرنامج قاعدة بيانات محلية مع إمكانية إنشاء نسخ احتياطية واستعادتها.
+                </p>
+            </details>
+
+            <details class="reveal">
+                <summary>كيف يتم التفعيل؟</summary>
+                <p>
+                    بعد التثبيت تظهر صفحة الترخيص ورقم الجهاز. يتم إرسال رقم الجهاز وإثبات الدفع عبر واتساب للحصول على مفتاح التفعيل.
+                </p>
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="ctaBox reveal">
+
+            <h2>رتّب جدول مدرستك بثقة أكبر</h2>
+
+            <p>
+                حمّل الشامخ V3، أدخل بيانات مدرستك، افحص الجاهزية، ثم أنشئ جدولًا منظمًا
+                يمكنك مراجعته وتعديله وطباعته من مكان واحد.
+            </p>
+
+            <div class="actions" style="justify-content:center">
+
+                <a class="btn gold"
+                   href="https://github.com/iqab1314-hue/AlShamikh-Updates/releases/latest/download/AlShamikhSetup.exe">
+                    ⬇ تحميل برنامج الشامخ
+                </a>
+
+                <a class="btn green"
+                   href="https://wa.me/962778044495"
+                   target="_blank">
+                    💬 تواصل واتساب
+                </a>
+
+            </div>
+
+            <div class="version"
+                 id="ctaVersion">
+                أحدث إصدار رسمي
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     Footer
+========================================================= -->
+
+<footer>
+
+    <div class="container foot">
+
+        <div>
+            <b>الشامخ لإدارة الجداول المدرسية</b><br>
+            <small>إعداد الأستاذ عقاب محمد المحاسنة — 0778044495</small>
+        </div>
+
+        <div>
+            Al Shamikh © 2026
+        </div>
+
+    </div>
+
+</footer>
+
+
+<a class="wa"
+   href="https://wa.me/962778044495"
+   target="_blank"
+   aria-label="واتساب">
+    ✆
+</a>
+
+
 <script>
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-fetch('https://raw.githubusercontent.com/iqab1314-hue/AlShamikh-Updates/main/update.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{if(d.version){document.getElementById('liveVersion').textContent='أحدث إصدار متوفر: '+d.version;document.getElementById('ctaVersion').textContent='الإصدار الحالي: '+d.version;}}).catch(()=>{document.getElementById('liveVersion').textContent='التحديثات مرتبطة بالمصدر الرسمي';});
+const observer = new IntersectionObserver(
+    entries => entries.forEach(
+        entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        }
+    ),
+    { threshold: .12 }
+);
+
+document
+    .querySelectorAll('.reveal')
+    .forEach(el => observer.observe(el));
+
+
+fetch(
+    'https://raw.githubusercontent.com/iqab1314-hue/AlShamikh-Updates/main/update.json',
+    { cache: 'no-store' }
+)
+.then(r => r.json())
+.then(d => {
+    if (d.version) {
+        document.getElementById('liveVersion').textContent =
+            'أحدث إصدار متوفر: ' + d.version;
+
+        document.getElementById('ctaVersion').textContent =
+            'الإصدار الحالي: ' + d.version;
+    }
+})
+.catch(() => {
+    document.getElementById('liveVersion').textContent =
+        'التحديثات مرتبطة بالمصدر الرسمي';
+});
 </script>
+
 </body>
 </html>
